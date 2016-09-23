@@ -7,9 +7,11 @@ class MetadataManager
   def initialize metadata_path
     @metadata_path = metadata_path
     @document = get_document()
-
-    puts get_latest_version()
     # puts get_all_versions(@document)
+  end
+
+  def to_s
+    get_latest_version()
   end
 
   def get_latest_version()
