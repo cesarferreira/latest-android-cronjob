@@ -1,13 +1,11 @@
 require 'oga'
 require 'fileutils'
-require 'colorize'
 require 'open-uri'
 
 class MetadataManager
   def initialize metadata_path
     @metadata_path = metadata_path
     @document = get_document()
-    # puts get_all_versions(@document)
   end
 
   def to_s
@@ -35,5 +33,4 @@ class MetadataManager
     handle = open(@metadata_path) {|f| f.read }
     @document = Oga.parse_xml(handle)
   end
-
 end
