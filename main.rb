@@ -1,9 +1,10 @@
-require_relative 'metadata_manager'
-require_relative 'gradle_manager'
+require_relative 'managers/metadata_manager'
+require_relative 'managers/gradle_manager'
+require_relative 'managers/build_tools_manager'
 
-# DONE - classpath 'com.android.tools.build:gradle:2.2.0'
+# classpath 'com.android.tools.build:gradle:2.2.0'
 # https://services.gradle.org/distributions/gradle-3.1-all.zip
-# buildToolsVersion '24.0.2'
+# buildToolsVersion '24.0.3'
 # compile 'com.android.support:support-v7:24.2.1'
 # compile 'com.google.android.gms:play-services:9.6.0'
 
@@ -13,17 +14,17 @@ def gradle_build_tools
 end
 
 def gradle_version
-	gradle_url = 'https://gradle.org/gradle-download'
-	GradleManager.new(gradle_url).to_s
+	GradleManager.new().to_s
 end
 
 def build_tools_version
-	# TODO
+	BuildToolsManager.new().to_s
 end
 
 def output
 	puts "classpath 'com.android.tools.build:gradle:#{gradle_build_tools}'"
 	puts "https://services.gradle.org/distributions/gradle-#{gradle_version}-all.zip"
+	puts "buildToolsVersion '#{build_tools_version}'"
 end
 
 output

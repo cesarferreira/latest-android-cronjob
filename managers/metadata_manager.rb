@@ -5,18 +5,18 @@ require 'open-uri'
 class MetadataManager
   def initialize metadata_path
     @metadata_path = metadata_path
-    @document = get_document()
+    @document = get_document
   end
 
   def to_s
-    get_latest_version()
+    get_latest_version
   end
 
-  def get_latest_version()
+  def get_latest_version
     @document.at_xpath('metadata/versioning/latest/text()').text
   end
 
-  def get_all_versions()
+  def get_all_versions
     version_nodes = @document.xpath('metadata/versioning/versions')
 
     versions = []

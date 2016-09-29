@@ -9,16 +9,16 @@ class String
 end
 
 class GradleManager
-  def initialize gradle_url
-    @gradle_url = gradle_url
-    @document = get_document()
+  def initialize
+    @gradle_url = 'https://gradle.org/gradle-download'
+    @document = get_document
   end
 
   def to_s
-    get_latest_version()
+    get_latest_version
   end
 
-  def get_latest_version()
+  def get_latest_version
     output = @document.xpath('//div[@class="avia_textblock downloads-type"]//li/a/@href')
     gradle_url = output.first.value
 
